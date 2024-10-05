@@ -1,0 +1,55 @@
+:root{
+    --margin-page:60px;
+    --color-primary: #A375DB;
+    --color-action: #B42CDB ;
+    --color-secundary: #DB2CBA;
+    --color-tertiary: #7A2BDC;
+    --color-quarter: #412CDB;
+    --color-black: #2E2E2E;
+    --color-white: #F2F2F5;
+}
+/*Fuente de texto*/
+@font-face {
+    font-family: Acme-Regular;
+    src: url(/Font/Acme-Regular.ttf);
+}
+
+*{
+    padding: unset;
+    margin: unset;
+    border: unset;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Acme-Regular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    box-sizing: border-box;
+    line-height: none;
+    outline: unset;
+    background-color: #2E2E2E;
+}
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: #2E2E2E;
+}
+
+body{
+    color: #f2f2f2;
+}
+
+/*Barra de Navegación*/
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 16px var(--margin-page);
+}
+
+#track-list .flex {
+    background-color: #A375DB; 
+    border-radius: 10px; 
+    padding: 1rem; 
+    margin-bottom: 1rem; 
+  }

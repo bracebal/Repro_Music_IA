@@ -10,11 +10,12 @@ let contenedor = document.getElementById('track-list')
 
 axios.get('https://api.institutoalfa.org/api/songs').then((response) => {
     response.data.songs.map((song) => {
+        // Ocurre por cada canción
         let div = document.createElement('div')
-        div.setAttribute('src', 'flex p-4 gap-2')
+        div.setAttribute('class', 'flex p-4 gap-2')
 
         div.innerHTML = `
-                <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1jQrT8.img" class="rounded-full" alt="">
+                <img src="https://api.institutoalfa.org/api/songs/image/${song.image.filename}" class="rounded-full h-16" alt="">
                     <div>
                         <h3 class="font-bold">${song.title}</h3>
                         <p class="opacity-40">${song.author}</p>
