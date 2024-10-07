@@ -37,6 +37,7 @@ header{
 
 body{
     background-color: #2E2E2E;
+    background-color: #2E2E2E;
     color: #f2f2f2;
 }
 
@@ -56,7 +57,18 @@ body{
     border-radius: 10px; 
 }
 #track-list .song:hover {
+#track-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+}
+#track-list .song {
+    transition: background .3s ease-in;
+    border-radius: 10px; 
+}
+#track-list .song:hover {
     background-color: #A375DB; 
+    /* color: #2E2E2E; */
+    /* 
     /* color: #2E2E2E; */
     /* 
     padding: 1rem; 
