@@ -7,20 +7,65 @@ axios.get('https://api.institutoalfa.org/api/songs').then((response) => {
 })*/
 
 let contenedor = document.getElementById('track-list')
+let audioPlayer = document.getElementById('audio-player')
+let playPauseButton = document.getElementById('play-pause-button')
+let currentSongIndex = 0
+let songs = []
 
 axios.get('https://api.institutoalfa.org/api/songs').then((response) => {
-    response.data.songs.map((song) => {
+    songs = response.data.songs
+    songs.map((song, index) => {
         // Ocurre por cada canción
         let div = document.createElement('div')
         div.setAttribute('class', 'flex p-4 gap-4 items-center cursor-pointer song')
 
         div.innerHTML = `
-                <img src="https://api.institutoalfa.org/api/songs/image/${song.image.filename}" class="rounded-full h-16" alt="">
-                    <div>
-                        <h3 class="font-bold">${song.title}</h3>
-                        <p class="opacity-40">${song.author}</p>
-                    </div>
+            <img src="https://api.institutoalfa.org/api/songs/image/${song.image.filename}" class="rounded-full h-16" alt="">
+            <div>
+                <h3 class="font-bold">${song.title}</h3>
+                <p class="opacity-40">${song.author}</p>
+            </div>
+            <div class="flex space-x-2">
+                <button class="save-button bg-blue-500 text-white py-1 px-2 rounded">Guardar</button>
+                <button class="delete-button bg-red-500 text-white py-1 px-2 rounded" data-id="${song.id}">Eliminar</button>
+            </div>
         `
         contenedor.appendChild(div)
+
+        div.addEventListener('click', () => {
+            currentSongIndex = index
+            loadSong(song)
+        })
     })
+})
+
+function loadSong(song) {
+    document.getElementById('song-image').src = `https://api.institutoalfa.org/api/songs/image/${song.image.filename}`
+    document.getElementById('song-title').textContent = song.title
+    document.getElementById('song-author').textContent = song.author
+    audioPlayer.src = `https://api.institutoalfa.org/api/songs/audio/${song.audio.filename}`
+    audioPlayer.play()
+}
+
+// Botones de reproductor
+playPauseButton.addEventListener('click', () => {
+    if (audioPlayer.paused) {
+        audioPlayer.play()
+        playPauseButton.querySelector('img').src = '/Assets/pause.png'
+    } else {
+        audioPlayer.pause()
+        playPauseButton.querySelector('img').src = '/Assets/play.png'
+    }
+})
+
+// Back
+document.getElementById('back-button').addEventListener('click', () => {
+    currentSongIndex = (currentSongIndex === 0) ? songs.length - 1 : currentSongIndex - 1
+    loadSong(songs[currentSongIndex])
+})
+
+// Next
+document.getElementById('next-button').addEventListener('click', () => {
+    currentSongIndex = (currentSongIndex === songs.length - 1) ? 0 : currentSongIndex + 1
+    loadSong(songs[currentSongIndex])
 })

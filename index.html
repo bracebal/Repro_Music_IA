@@ -23,78 +23,36 @@
     <main class="flex">
         <!-- Este div es el lado izquierdo donde se encuentran las canciones -->
         <div id="track-list" class="flex-1 gap-4 p-4">
-            <!-- <div class="flex flex-col p-4 gap-2">
-                <img src="/Assets/song.jpg" class="rounded-full h-16" alt="">
-                <h3>Die With A Smile</h3>
-                <p class="opacity-40">Lady Gaga, Bruno Mars</p>
-            </div>
-            <div class="flex flex-col p-4 gap-2">
-                <img src="/Assets/Rawayana.jpg" class="rounded-full h-16" alt="">
-                <h1>Hora Loca</h1>
-                <p class="opacity-40">Rawayana, Monsiur Perine</p>
-            </div>
-            <div class="flex flex-col p-4 gap-2">
-                <img src="/Assets/the weeknd.jpg" class="rounded-full h-16" alt="">
-                <h1>Blinding Lights</h1>
-                <p class="opacity-40">The Weeknd</p>
-            </div>
-            <div class="flex flex-col p-4 gap-2">
-                <img src="/Assets/shawn_mendes.jpg" class="rounded-full h-16" alt="">
-                <h1>There's Nothing Holding Me Back</h1>
-                <p class="opacity-40">Shawn Mendes</p>
-            </div>
-            <div class="flex flex-col p-4 gap-2">
-                <img src="/Assets/Olivia Rodrigo.jpg" class="rounded-full h-16" alt="">
-                <h1>Traitor</h1>
-                <p class="opacity-40">Olivia Rodrigo</p>
-            </div>
-            <div class="flex flex-col p-4 gap-2">
-                <img src="/Assets/queen.jpg" class="rounded-full h-16" alt="">
-                <h1>Another One Bites The Dust</h1>
-                <p class="opacity-40">Queen</p>
-            </div>
-            <div class="flex flex-col p-4 gap-2">
-                <img src="/Assets/moth to a flame.jpg" class="rounded-full h-16" alt="">
-                <h1>Moth To A Flame</h1>
-                <p class="opacity-40">Swedish House Mafia, The Weeknd</p>
-            </div>
-            <div class="flex flex-col p-4 gap-2">
-                <img src="/Assets/those eyes.jpg" class="rounded-full h-16" alt="">
-                <h1>Those Eyes</h1>
-                <p class="opacity-40">New West</p>
-            </div>
-            </div> -->
+
         </div>
 
         <!-- Línea vertical con color personalizado -->
         <div class="w-px bg-custom-purple"></div>
 
         <!-- Este es el lado derecho donde está la canción actual -->
-         <div class="w-96 ml-8 mr-8">
-            <img src="/Assets/song.jpg" alt="">
-
+        <div class="w-96 ml-8 mr-8" id="player">
+            <img src="/Assets/starting.jpg" id="song-image" class="rounded-lg" alt="">
+        
             <div>
-                <h2>Die With A Smile</h2>
-                <p>Lady Gaga, Bruno Mars</p>
+                <h2 id="song-title"></h2>
+                <p id="song-author"></p>
             </div>
-
+        
             <div class="flex justify-center space-x-4">
                 <!-- Botones del reproductor -->
-                <button>
+                <button id="back-button">
                     <img src="/Assets/back.png" alt="Back">
                 </button>
-                <button>
+                <button id="play-pause-button">
                     <img src="/Assets/play.png" alt="Play/Pause">
                 </button>
-                <button>
+                <button id="next-button">
                     <img src="/Assets/next.png" alt="Next">
                 </button>
             </div>
-
-         </div>
-
-
-         </div>
+        
+            <audio id="audio-player" src=""></audio>
+        </div>        
 
     </main>
     <script src="/script.js"></script>
