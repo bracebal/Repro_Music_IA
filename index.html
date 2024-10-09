@@ -11,7 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body>
+<body class="flex flex-col">
     <header>
         <nav class="navbar">
             <img src="/Assets/Logo.svg" alt="">
@@ -21,9 +21,9 @@
         </nav>
     </header>
 
-    <main class="flex">
+    <main class="flex flex-1">
         <!-- Este div es el lado izquierdo donde se encuentran las canciones -->
-        <div id="track-list" class="flex-1 gap-4 p-4">
+        <div id="track-list" class="flex-1 overflow-auto gap-4 p-4">
 
         </div>
 
@@ -52,7 +52,7 @@
                 </button>
             </div>
         
-            <audio id="audio-player" src=""></audio>
+            <audio id="audio-player" src="" autoplay></audio>
         </div>        
 
     </main>

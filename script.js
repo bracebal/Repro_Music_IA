@@ -37,11 +37,12 @@ axios.get('https://api.institutoalfa.org/api/songs').then((response) => {
 })
 
 function loadSong(song) {
+    playPauseButton.querySelector('img').src = '/Assets/pause.png'
     document.getElementById('song-image').src = `https://api.institutoalfa.org/api/songs/image/${song.image.filename}`
     document.getElementById('song-title').textContent = song.title
     document.getElementById('song-author').textContent = song.author
     audioPlayer.src = `https://api.institutoalfa.org/api/songs/audio/${song.audio.filename}`
-    audioPlayer.play()
+    // audioPlayer.play()
     highlightPlayingSong()
 }
 
