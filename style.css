@@ -38,6 +38,8 @@ header{
 body{
     background-color: #2E2E2E;
     color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
 }
 
 /*Barra de Navegación*/
