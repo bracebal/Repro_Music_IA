@@ -25,16 +25,13 @@ axios.get('https://api.institutoalfa.org/api/songs').then((response) => {
                 <h3 class="font-bold">${song.title}</h3>
                 <p class="opacity-40">${song.author}</p>
             </div>
-            <div class="flex space-x-2">
-                <button class="save-button bg-blue-500 text-white py-1 px-2 rounded">Guardar</button>
-                <button class="delete-button bg-red-500 text-white py-1 px-2 rounded" data-id="${song.id}">Eliminar</button>
-            </div>
         `
         contenedor.appendChild(div)
 
         div.addEventListener('click', () => {
             currentSongIndex = index
             loadSong(song)
+            highlightPlayingSong()
         })
     })
 })
@@ -45,6 +42,18 @@ function loadSong(song) {
     document.getElementById('song-author').textContent = song.author
     audioPlayer.src = `https://api.institutoalfa.org/api/songs/audio/${song.audio.filename}`
     audioPlayer.play()
+    highlightPlayingSong()
+}
+
+function highlightPlayingSong() {
+    let songDivs = document.querySelectorAll('#track-list .song')
+    songDivs.forEach((div, index) => {
+        if (index === currentSongIndex) {
+            div.classList.add('playing')
+        } else {
+            div.classList.remove('playing')
+        }
+    })
 }
 
 // Botones de reproductor

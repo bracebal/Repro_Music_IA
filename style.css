@@ -51,18 +51,23 @@ body{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
 }
+
 #track-list .song {
     transition: background .3s ease-in;
-    border-radius: 10px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 var(--color-primary);
+    transition: background .3s ease-in;
 }
+
 #track-list .song:hover {
-    background-color: #A375DB; 
-    /* color: #2E2E2E; */
-    /* 
-    padding: 1rem; 
-    margin-bottom: 1rem;  */
+    background-color: #A375DB;
+}
+
+#track-list .song.playing {
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 8px 0 rgba(65, 44, 219, 0.4);
 }
 
 .bg-custom-purple {
     background-color: #412CDB;
-  }
+}
